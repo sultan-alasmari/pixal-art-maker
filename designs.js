@@ -1,27 +1,54 @@
 // Select color input
 // Select size input
 
+const backgroundColor = selectColor.value;
+
+
+const inputHeight = document.getElementById('inputHeight');
+
+const inputWidth = document.getElementById('inputWidth');
+
+const selectSize = document.getElementById('selectSize');
+
 const selectColor = document.getElementById('selectColor');
 
-const numbersOfrow = document.getElementById('numbersOfrow');
+const selectPixal = document.getElementById('selectPixal');
 
-const numbersOfwidth = document.getElementById('numbersOfwidth');
+const submit = document.getElementById("selectSize");
 
-const pixelOfCanvas = document.getElementById('pixelOfCanvas');
-
-const sizeOfform = document.getElementById('sizeOfform');
+const choosePixal = document.getElementById("selectPixal");
 
 // When size is submitted by the user, call makeGrid()
-sizeOfform.addEventListener('submit', function(event) {
-    pixelOfCanvas.innerHTML = '';
-    event.preventDefault();
-    makeGrid();
+
+
+
+submit.addEventListener('submit', function (firstFunction) {
+
+  alert('Thank You For Select')
+
+   selectPixal.innerhtml = '---';
+
+   height = document.getElementById("inputHeight").value;
+
+   width = document.getElementById("inputWidth").value;
+
+   firstFunction.preventDefault();
+
+   makeGrid(height, width);
+    firstFunction.preventDefault();
+
+
+
 
 });
 
-pixelOfCanvas.addEventListener('click', function(event) {
-    if (event.target.nodeName === 'TD') {
-        event.target.style.backgroundColor = selectColor.value;
+choosePixal.addEventListener('click', function(secondFunction) {
+
+    if (secondFunction.target.nodeName === 'TD') {
+
+
+
+        secondFunction.target.style.backgroundColor = backgroundColor;
     }
 
 });
@@ -34,11 +61,21 @@ This makeGrid function to know :
 4-In second loop we are use insertCell method
 */
 
+
+
+
 function makeGrid() {
-    for (let i = 0; i < numbersOfrow.value; i++) {
-        const row = pixelOfCanvas.insertRow(0);
-        for (let k = 0; k < numbersOfwidth.value; k++) {
-            row.insertCell(0);
+    let table;
+
+    for (let i = 0; i < inputHeight.value; i++) {
+
+        let table = selectPixal.insertRow(i);
+
+
+        for (let k = 0; k < inputWidth.value; k++) {
+
+
+            table.insertCell(k);
         }
 
     }
